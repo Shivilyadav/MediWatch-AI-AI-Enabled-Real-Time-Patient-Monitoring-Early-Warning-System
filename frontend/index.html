@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aavishkar Patient Monitor | AI ICU Central Station</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header / Control Bar -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="pulse-icon"></div>
+                <div>
+                    <h1>AAVISHKAR <span>PATIENT MONITOR</span></h1>
+                    <span class="sub-badge">AI ICU CENTRAL TELEMETRY v1.0</span>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <div class="status-indicator">
+                    <span class="status-dot online" id="ws-status-dot"></span>
+                    <span id="ws-status-text">LIVE TELEMETRY</span>
+                </div>
+                
+                <button class="btn btn-secondary" id="btn-toggle-view">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+                    <span id="view-mode-label">SINGLE BED VIEW</span>
+                </button>
+
+                <button class="btn btn-warning" id="btn-open-sim">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    SIMULATE EVENT
+                </button>
+
+                <button class="btn btn-danger" id="btn-silence">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                    SILENCE ALARMS
+                </button>
+                
+                <div class="system-time" id="system-time">00:00:00</div>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <!-- Patient Selector Tabs -->
+            <div class="patient-tabs" id="patient-tabs">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- Single Bed Detailed View -->
+            <div class="bed-detail-view" id="single-bed-view">
+                <div class="patient-banner" id="patient-banner">
+                    <div class="patient-info">
+                        <h2 id="p-name">Loading...</h2>
+                        <div class="meta-tags">
+                            <span class="tag" id="p-bed">BED-101</span>
+                            <span class="tag" id="p-age-gender">-- Y/O</span>
+                            <span class="tag" id="p-admission">Post-Op</span>
+                            <span class="tag" id="p-doctor">Dr. Vance</span>
+                        </div>
+                    </div>
+
+                    <div class="risk-card" id="risk-card">
+                        <div class="risk-score-circle">
+                            <span id="risk-score-val">0</span>
+                            <small>/100</small>
+                        </div>
+                        <div class="risk-meta">
+                            <div class="risk-label">AI RISK LEVEL</div>
+                            <div class="risk-status" id="risk-level-status">LOW RISK</div>
+                            <div class="detected-flags" id="risk-flags">Normal Sinus Rhythm</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="telemetry-grid">
+                    <!-- Waveform Section (Oscilloscopes) -->
+                    <div class="waveforms-container">
+                        <!-- ECG Waveform -->
+                        <div class="waveform-box ecg-box">
+                            <div class="wave-header">
+                                <div class="wave-title">
+                                    <span class="wave-dot green"></span>
+                                    <span>LEAD II - ECG (50mm/s)</span>
+                                </div>
+                                <div class="wave-metric green">
+                                    <span class="metric-label">HR</span>
+                                    <span class="metric-value" id="val-hr">72</span>
+                                    <span class="metric-unit">BPM</span>
+                                </div>
+                            </div>
+                            <canvas id="canvas-ecg" width="900" height="150"></canvas>
+                        </div>
+
+                        <!-- PPG SpO2 Waveform -->
+                        <div class="waveform-box ppg-box">
+                            <div class="wave-header">
+                                <div class="wave-title">
+                                    <span class="wave-dot cyan"></span>
+                                    <span>PLETH - SpO2 PULSE WAVE</span>
+                                </div>
+                                <div class="wave-metric cyan">
+                                    <span class="metric-label">SpO2</span>
+                                    <span class="metric-value" id="val-spo2">98</span>
+                                    <span class="metric-unit">%</span>
+                                </div>
+                            </div>
+                            <canvas id="canvas-ppg" width="900" height="130"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Vitals Numerics Column -->
+                    <div class="vitals-sidebar">
+                        <div class="vital-card hr-card">
+                            <div class="card-title">HEART RATE</div>
+                            <div class="card-num" id="card-hr">72</div>
+                            <div class="card-sub">NORMAL (60-100)</div>
+                        </div>
+
+                        <div class="vital-card spo2-card">
+                            <div class="card-title">OXYGEN SAT (SpO2)</div>
+                            <div class="card-num" id="card-spo2">98<small>%</small></div>
+                            <div class="card-sub">TARGET > 95%</div>
+                        </div>
+
+                        <div class="vital-card bp-card">
+                            <div class="card-title">NIBP (SYS/DIA)</div>
+                            <div class="card-num" id="card-bp">120/80</div>
+                            <div class="card-sub">MAP: <span id="card-map">93</span> mmHg</div>
+                        </div>
+
+                        <div class="vital-card resp-card">
+                            <div class="card-title">RESPIRATION</div>
+                            <div class="card-num" id="card-rr">16<small>rpm</small></div>
+                            <div class="card-sub">NORMAL (12-20)</div>
+                        </div>
+
+                        <div class="vital-card temp-card">
+                            <div class="card-title">BODY TEMP</div>
+                            <div class="card-num" id="card-temp">36.8<small>°C</small></div>
+                            <div class="card-sub">AFEBRILE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multi-Bed Grid Station View (Hidden by Default) -->
+            <div class="multi-bed-grid hidden" id="multi-bed-view">
+                <!-- Dynamically generated patient cards -->
+            </div>
+        </main>
+
+        <!-- Clinical Alert History Footer Drawer -->
+        <footer class="alert-footer">
+            <div class="alert-header">
+                <h3>CLINICAL ALERTS LOG</h3>
+                <span class="badge" id="alert-count-badge">0 ALERTS</span>
+            </div>
+            <div class="alert-feed" id="alert-feed">
+                <div class="empty-feed">No active clinical alarms recorded. System monitoring nominal.</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Simulator Modal -->
+    <div class="modal-overlay hidden" id="sim-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>PHYSIOLOGICAL SIMULATOR</h3>
+                <button class="close-btn" id="btn-close-sim">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Inject physiological anomalies into patient telemetry to test real-time ML anomaly detection & alarms.</p>
+                
+                <div class="form-group">
+                    <label>Select Target Patient Bed:</label>
+                    <select id="sim-bed-select">
+                        <option value="BED-101">BED-101: Sarah Connor</option>
+                        <option value="BED-102">BED-102: Robert Chen</option>
+                        <option value="BED-103">BED-103: Elena Rostova</option>
+                        <option value="BED-104">BED-104: David Miller</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Physiological Event:</label>
+                    <div class="sim-grid">
+                        <button class="sim-option-btn" data-condition="Normal">
+                            <strong>Normal Sinus</strong>
+                            <small>Restores nominal baseline vitals</small>
+                        </button>
+                        <button class="sim-option-btn danger" data-condition="Bradycardia">
+                            <strong>Bradycardia</strong>
+                            <small>HR drops to ~42 BPM</small>
+                        </button>
+                        <button class="sim-option-btn danger" data-condition="Tachycardia">
+                            <strong>Tachycardia</strong>
+                            <small>HR spikes to ~145 BPM</small>
+                        </button>
+                        <button class="sim-option-btn warning" data-condition="Arrhythmia">
+                            <strong>ECG Arrhythmia</strong>
+                            <small>Irregular PQRST intervals</small>
+                        </button>
+                        <button class="sim-option-btn danger" data-condition="Hypoxia">
+                            <strong>Severe Hypoxia</strong>
+                            <small>SpO2 plummets to ~82%</small>
+                        </button>
+                        <button class="sim-option-btn warning" data-condition="Fever">
+                            <strong>Hyperthermia / Fever</strong>
+                            <small>Temp 39.4°C + Tachycardia</small>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
