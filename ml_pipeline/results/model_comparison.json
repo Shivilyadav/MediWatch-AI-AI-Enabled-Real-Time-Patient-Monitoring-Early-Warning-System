@@ -1,0 +1,522 @@
+{
+  "models": {
+    "logistic_regression": {
+      "family": "tabular",
+      "feature_version": "stage4-v2",
+      "inference_latency_ms_per_row": 0.000805,
+      "test_metrics": {
+        "auprc": 0.0161,
+        "auroc": 0.647526,
+        "confusion_matrix": {
+          "fn": 10,
+          "fp": 3269,
+          "tn": 2289,
+          "tp": 50
+        },
+        "f1": 0.029595,
+        "false_positive_rate": 0.588161,
+        "negative_samples": 5558,
+        "npv": 0.99565,
+        "positive_samples": 60,
+        "precision": 0.015065,
+        "sensitivity": 0.833333,
+        "sensitivity_95ci_wilson": [
+          0.719681,
+          0.906869
+        ],
+        "specificity": 0.411839,
+        "specificity_95ci_wilson": [
+          0.398965,
+          0.424835
+        ]
+      },
+      "test_metrics_stage4v1_reference": {
+        "auprc": 0.036939,
+        "auroc": 0.626189,
+        "confusion_matrix": {
+          "fn": 9,
+          "fp": 4152,
+          "tn": 1406,
+          "tp": 51
+        },
+        "f1": 0.023927,
+        "false_positive_rate": 0.747031,
+        "negative_samples": 5558,
+        "npv": 0.99364,
+        "positive_samples": 60,
+        "precision": 0.012134,
+        "sensitivity": 0.85,
+        "sensitivity_95ci_wilson": [
+          0.738852,
+          0.919027
+        ],
+        "specificity": 0.252969,
+        "specificity_95ci_wilson": [
+          0.241713,
+          0.264565
+        ]
+      },
+      "threshold": 0.36061602358147954,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.4067,
+      "validation_metrics": {
+        "auprc": 0.013401,
+        "auroc": 0.587098,
+        "confusion_matrix": {
+          "fn": 9,
+          "fp": 3355,
+          "tn": 2254,
+          "tp": 57
+        },
+        "f1": 0.032777,
+        "false_positive_rate": 0.598146,
+        "negative_samples": 5609,
+        "npv": 0.996023,
+        "positive_samples": 66,
+        "precision": 0.016706,
+        "sensitivity": 0.863636,
+        "sensitivity_95ci_wilson": [
+          0.760702,
+          0.926568
+        ],
+        "specificity": 0.401854,
+        "specificity_95ci_wilson": [
+          0.389095,
+          0.414748
+        ]
+      },
+      "validation_metrics_stage4v1_reference": {
+        "auprc": 0.013544,
+        "auroc": 0.566878,
+        "confusion_matrix": {
+          "fn": 12,
+          "fp": 4087,
+          "tn": 1522,
+          "tp": 54
+        },
+        "f1": 0.025671,
+        "false_positive_rate": 0.72865,
+        "negative_samples": 5609,
+        "npv": 0.992177,
+        "positive_samples": 66,
+        "precision": 0.01304,
+        "sensitivity": 0.818182,
+        "sensitivity_95ci_wilson": [
+          0.708546,
+          0.892815
+        ],
+        "specificity": 0.27135,
+        "specificity_95ci_wilson": [
+          0.259872,
+          0.28314
+        ]
+      }
+    },
+    "lstm": {
+      "architecture": {
+        "dropout": 0.3,
+        "head": "Linear(hidden,1)+sigmoid",
+        "hidden": 32,
+        "input_channels": 20,
+        "layers": 1,
+        "type": "LSTM"
+      },
+      "best_epoch": 17,
+      "family": "sequence",
+      "feature_version": "raw-core-derived-seq-v1",
+      "inference_latency_ms_per_sequence": 0.009636,
+      "test_metrics": {
+        "auprc": 0.012094,
+        "auroc": 0.533966,
+        "confusion_matrix": {
+          "fn": 18,
+          "fp": 3311,
+          "tn": 2247,
+          "tp": 42
+        },
+        "f1": 0.024612,
+        "false_positive_rate": 0.595718,
+        "negative_samples": 5558,
+        "npv": 0.992053,
+        "positive_samples": 60,
+        "precision": 0.012526,
+        "sensitivity": 0.7,
+        "sensitivity_95ci_wilson": [
+          0.574911,
+          0.80102
+        ],
+        "specificity": 0.404282,
+        "specificity_95ci_wilson": [
+          0.39145,
+          0.417246
+        ]
+      },
+      "threshold": 0.028856679797172546,
+      "threshold_sensitivity_constraint_met": true,
+      "validation_metrics": {
+        "auprc": 0.047721,
+        "auroc": 0.756279,
+        "confusion_matrix": {
+          "fn": 6,
+          "fp": 3432,
+          "tn": 2177,
+          "tp": 60
+        },
+        "f1": 0.033727,
+        "false_positive_rate": 0.611874,
+        "negative_samples": 5609,
+        "npv": 0.997251,
+        "positive_samples": 66,
+        "precision": 0.017182,
+        "sensitivity": 0.909091,
+        "sensitivity_95ci_wilson": [
+          0.815511,
+          0.957668
+        ],
+        "specificity": 0.388126,
+        "specificity_95ci_wilson": [
+          0.375453,
+          0.400952
+        ]
+      }
+    },
+    "random_forest": {
+      "family": "tabular",
+      "feature_version": "stage4-v2",
+      "inference_latency_ms_per_row": 0.015356,
+      "test_metrics": {
+        "auprc": 0.017085,
+        "auroc": 0.632447,
+        "confusion_matrix": {
+          "fn": 10,
+          "fp": 4094,
+          "tn": 1464,
+          "tp": 50
+        },
+        "f1": 0.023787,
+        "false_positive_rate": 0.736596,
+        "negative_samples": 5558,
+        "npv": 0.993216,
+        "positive_samples": 60,
+        "precision": 0.012066,
+        "sensitivity": 0.833333,
+        "sensitivity_95ci_wilson": [
+          0.719681,
+          0.906869
+        ],
+        "specificity": 0.263404,
+        "specificity_95ci_wilson": [
+          0.25199,
+          0.275145
+        ]
+      },
+      "test_metrics_stage4v1_reference": {
+        "auprc": 0.01378,
+        "auroc": 0.607251,
+        "confusion_matrix": {
+          "fn": 8,
+          "fp": 4178,
+          "tn": 1380,
+          "tp": 52
+        },
+        "f1": 0.024242,
+        "false_positive_rate": 0.751709,
+        "negative_samples": 5558,
+        "npv": 0.994236,
+        "positive_samples": 60,
+        "precision": 0.012293,
+        "sensitivity": 0.866667,
+        "sensitivity_95ci_wilson": [
+          0.758346,
+          0.93086
+        ],
+        "specificity": 0.248291,
+        "specificity_95ci_wilson": [
+          0.237109,
+          0.25982
+        ]
+      },
+      "threshold": 0.0033333333333333335,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 2.0712,
+      "validation_metrics": {
+        "auprc": 0.016728,
+        "auroc": 0.602592,
+        "confusion_matrix": {
+          "fn": 10,
+          "fp": 4037,
+          "tn": 1572,
+          "tp": 56
+        },
+        "f1": 0.02693,
+        "false_positive_rate": 0.719736,
+        "negative_samples": 5609,
+        "npv": 0.993679,
+        "positive_samples": 66,
+        "precision": 0.013682,
+        "sensitivity": 0.848485,
+        "sensitivity_95ci_wilson": [
+          0.743069,
+          0.915565
+        ],
+        "specificity": 0.280264,
+        "specificity_95ci_wilson": [
+          0.268663,
+          0.292165
+        ]
+      },
+      "validation_metrics_stage4v1_reference": {
+        "auprc": 0.014898,
+        "auroc": 0.59017,
+        "confusion_matrix": {
+          "fn": 8,
+          "fp": 4106,
+          "tn": 1503,
+          "tp": 58
+        },
+        "f1": 0.027423,
+        "false_positive_rate": 0.732038,
+        "negative_samples": 5609,
+        "npv": 0.994705,
+        "positive_samples": 66,
+        "precision": 0.013929,
+        "sensitivity": 0.878788,
+        "sensitivity_95ci_wilson": [
+          0.778623,
+          0.937282
+        ],
+        "specificity": 0.267962,
+        "specificity_95ci_wilson": [
+          0.256533,
+          0.279709
+        ]
+      }
+    },
+    "xgboost_baseline": {
+      "family": "tabular",
+      "feature_version": "stage4-v2",
+      "inference_latency_ms_per_row": 0.001313,
+      "test_metrics": {
+        "auprc": 0.015882,
+        "auroc": 0.639782,
+        "confusion_matrix": {
+          "fn": 11,
+          "fp": 3736,
+          "tn": 1822,
+          "tp": 49
+        },
+        "f1": 0.025488,
+        "false_positive_rate": 0.672184,
+        "negative_samples": 5558,
+        "npv": 0.993999,
+        "positive_samples": 60,
+        "precision": 0.012946,
+        "sensitivity": 0.816667,
+        "sensitivity_95ci_wilson": [
+          0.7008,
+          0.894423
+        ],
+        "specificity": 0.327816,
+        "specificity_95ci_wilson": [
+          0.315597,
+          0.340272
+        ]
+      },
+      "test_metrics_stage4v1_reference": {
+        "auprc": 0.015732,
+        "auroc": 0.614785,
+        "confusion_matrix": {
+          "fn": 5,
+          "fp": 4382,
+          "tn": 1176,
+          "tp": 55
+        },
+        "f1": 0.024461,
+        "false_positive_rate": 0.788413,
+        "negative_samples": 5558,
+        "npv": 0.995766,
+        "positive_samples": 60,
+        "precision": 0.012396,
+        "sensitivity": 0.916667,
+        "sensitivity_95ci_wilson": [
+          0.819308,
+          0.96388
+        ],
+        "specificity": 0.211587,
+        "specificity_95ci_wilson": [
+          0.20105,
+          0.222522
+        ]
+      },
+      "threshold": 0.08273199945688248,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.9823,
+      "validation_metrics": {
+        "auprc": 0.01392,
+        "auroc": 0.569863,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 3434,
+          "tn": 2175,
+          "tp": 53
+        },
+        "f1": 0.029834,
+        "false_positive_rate": 0.61223,
+        "negative_samples": 5609,
+        "npv": 0.994059,
+        "positive_samples": 66,
+        "precision": 0.015199,
+        "sensitivity": 0.80303,
+        "sensitivity_95ci_wilson": [
+          0.69161,
+          0.881115
+        ],
+        "specificity": 0.38777,
+        "specificity_95ci_wilson": [
+          0.375099,
+          0.400594
+        ]
+      },
+      "validation_metrics_stage4v1_reference": {
+        "auprc": 0.012975,
+        "auroc": 0.542903,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 4031,
+          "tn": 1578,
+          "tp": 53
+        },
+        "f1": 0.025542,
+        "false_positive_rate": 0.718666,
+        "negative_samples": 5609,
+        "npv": 0.991829,
+        "positive_samples": 66,
+        "precision": 0.012977,
+        "sensitivity": 0.80303,
+        "sensitivity_95ci_wilson": [
+          0.69161,
+          0.881115
+        ],
+        "specificity": 0.281334,
+        "specificity_95ci_wilson": [
+          0.269719,
+          0.293248
+        ]
+      }
+    },
+    "xgboost_tuned": {
+      "family": "tabular",
+      "feature_version": "stage4-v2",
+      "inference_latency_ms_per_row": 0.001675,
+      "test_metrics": {
+        "auprc": 0.016137,
+        "auroc": 0.646769,
+        "confusion_matrix": {
+          "fn": 8,
+          "fp": 4008,
+          "tn": 1550,
+          "tp": 52
+        },
+        "f1": 0.025243,
+        "false_positive_rate": 0.721123,
+        "negative_samples": 5558,
+        "npv": 0.994865,
+        "positive_samples": 60,
+        "precision": 0.012808,
+        "sensitivity": 0.866667,
+        "sensitivity_95ci_wilson": [
+          0.758346,
+          0.93086
+        ],
+        "specificity": 0.278877,
+        "specificity_95ci_wilson": [
+          0.267243,
+          0.290817
+        ]
+      },
+      "test_metrics_stage4v1_reference": {
+        "auprc": 0.0185,
+        "auroc": 0.637588,
+        "confusion_matrix": {
+          "fn": 5,
+          "fp": 4290,
+          "tn": 1268,
+          "tp": 55
+        },
+        "f1": 0.024972,
+        "false_positive_rate": 0.77186,
+        "negative_samples": 5558,
+        "npv": 0.996072,
+        "positive_samples": 60,
+        "precision": 0.012658,
+        "sensitivity": 0.916667,
+        "sensitivity_95ci_wilson": [
+          0.819308,
+          0.96388
+        ],
+        "specificity": 0.22814,
+        "specificity_95ci_wilson": [
+          0.217297,
+          0.239357
+        ]
+      },
+      "threshold": 0.09116904437541962,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.816,
+      "validation_metrics": {
+        "auprc": 0.013408,
+        "auroc": 0.55947,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 3735,
+          "tn": 1874,
+          "tp": 53
+        },
+        "f1": 0.027504,
+        "false_positive_rate": 0.665894,
+        "negative_samples": 5609,
+        "npv": 0.993111,
+        "positive_samples": 66,
+        "precision": 0.013992,
+        "sensitivity": 0.80303,
+        "sensitivity_95ci_wilson": [
+          0.69161,
+          0.881115
+        ],
+        "specificity": 0.334106,
+        "specificity_95ci_wilson": [
+          0.321879,
+          0.34656
+        ]
+      },
+      "validation_metrics_stage4v1_reference": {
+        "auprc": 0.013878,
+        "auroc": 0.567577,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 3959,
+          "tn": 1650,
+          "tp": 53
+        },
+        "f1": 0.025993,
+        "false_positive_rate": 0.70583,
+        "negative_samples": 5609,
+        "npv": 0.992183,
+        "positive_samples": 66,
+        "precision": 0.01321,
+        "sensitivity": 0.80303,
+        "sensitivity_95ci_wilson": [
+          0.69161,
+          0.881115
+        ],
+        "specificity": 0.29417,
+        "specificity_95ci_wilson": [
+          0.282389,
+          0.306233
+        ]
+      }
+    }
+  },
+  "note": "All thresholds selected on validation only; test evaluated once. Test has 60 positives -- small differences are not meaningful. Tabular models use stage4-v2; LSTM uses raw causal sequences.",
+  "primary_selection_basis": "validation"
+}

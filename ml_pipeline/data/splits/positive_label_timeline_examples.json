@@ -1,0 +1,102 @@
+[
+  {
+    "patient_id": "training_setA/p000009",
+    "first_positive_row_index": 248,
+    "last_positive_row_index": 257,
+    "first_positive_iculos": 249,
+    "last_positive_iculos": 258,
+    "record_end_iculos": 258,
+    "positive_readings": 10,
+    "hours_from_first_positive_to_record_end": 9
+  },
+  {
+    "patient_id": "training_setA/p000011",
+    "first_positive_row_index": 24,
+    "last_positive_row_index": 33,
+    "first_positive_iculos": 26,
+    "last_positive_iculos": 35,
+    "record_end_iculos": 35,
+    "positive_readings": 10,
+    "hours_from_first_positive_to_record_end": 9
+  },
+  {
+    "patient_id": "training_setA/p000015",
+    "first_positive_row_index": 5,
+    "last_positive_row_index": 14,
+    "first_positive_iculos": 6,
+    "last_positive_iculos": 15,
+    "record_end_iculos": 15,
+    "positive_readings": 10,
+    "hours_from_first_positive_to_record_end": 9
+  },
+  {
+    "patient_id": "training_setA/p000018",
+    "first_positive_row_index": 125,
+    "last_positive_row_index": 133,
+    "first_positive_iculos": 126,
+    "last_positive_iculos": 134,
+    "record_end_iculos": 134,
+    "positive_readings": 9,
+    "hours_from_first_positive_to_record_end": 8
+  },
+  {
+    "patient_id": "training_setA/p000022",
+    "first_positive_row_index": 9,
+    "last_positive_row_index": 18,
+    "first_positive_iculos": 14,
+    "last_positive_iculos": 23,
+    "record_end_iculos": 23,
+    "positive_readings": 10,
+    "hours_from_first_positive_to_record_end": 9
+  },
+  {
+    "patient_id": "training_setA/p000028",
+    "first_positive_row_index": 21,
+    "last_positive_row_index": 30,
+    "first_positive_iculos": 22,
+    "last_positive_iculos": 31,
+    "record_end_iculos": 31,
+    "positive_readings": 10,
+    "hours_from_first_positive_to_record_end": 9
+  },
+  {
+    "patient_id": "training_setA/p000034",
+    "first_positive_row_index": 3,
+    "last_positive_row_index": 12,
+    "first_positive_iculos": 6,
+    "last_positive_iculos": 15,
+    "record_end_iculos": 15,
+    "positive_readings": 10,
+    "hours_from_first_positive_to_record_end": 9
+  },
+  {
+    "patient_id": "training_setA/p000042",
+    "first_positive_row_index": 63,
+    "last_positive_row_index": 72,
+    "first_positive_iculos": 64,
+    "last_positive_iculos": 73,
+    "record_end_iculos": 73,
+    "positive_readings": 10,
+    "hours_from_first_positive_to_record_end": 9
+  },
+  {
+    "patient_id": "training_setA/p000053",
+    "first_positive_row_index": 15,
+    "last_positive_row_index": 24,
+    "first_positive_iculos": 18,
+    "last_positive_iculos": 27,
+    "record_end_iculos": 27,
+    "positive_readings": 10,
+    "hours_from_first_positive_to_record_end": 9
+  },
+  {
+    "patient_id": "training_setA/p000056",
+    "first_positive_row_index": 0,
+    "last_positive_row_index": 8,
+    "first_positive_iculos": 1,
+    "last_positive_iculos": 9,
+    "record_end_iculos": 9,
+    "positive_readings": 9,
+    "hours_from_first_positive_to_record_end": 8
+  }
+]

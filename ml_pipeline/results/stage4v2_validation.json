@@ -1,0 +1,132 @@
+{
+  "feature_version": "stage4-v2",
+  "models": {
+    "logistic_regression": {
+      "threshold": 0.36061602358147954,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.422272,
+      "validation_metrics": {
+        "auprc": 0.013401,
+        "auroc": 0.587098,
+        "confusion_matrix": {
+          "fn": 9,
+          "fp": 3355,
+          "tn": 2254,
+          "tp": 57
+        },
+        "f1": 0.032777,
+        "false_positive_rate": 0.598146,
+        "negative_samples": 5609,
+        "npv": 0.996023,
+        "positive_samples": 66,
+        "precision": 0.016706,
+        "sensitivity": 0.863636,
+        "sensitivity_95ci_wilson": [
+          0.760702,
+          0.926568
+        ],
+        "specificity": 0.401854,
+        "specificity_95ci_wilson": [
+          0.389095,
+          0.414748
+        ]
+      }
+    },
+    "random_forest": {
+      "threshold": 0.0033333333333333335,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 1.992361,
+      "validation_metrics": {
+        "auprc": 0.016728,
+        "auroc": 0.602592,
+        "confusion_matrix": {
+          "fn": 10,
+          "fp": 4037,
+          "tn": 1572,
+          "tp": 56
+        },
+        "f1": 0.02693,
+        "false_positive_rate": 0.719736,
+        "negative_samples": 5609,
+        "npv": 0.993679,
+        "positive_samples": 66,
+        "precision": 0.013682,
+        "sensitivity": 0.848485,
+        "sensitivity_95ci_wilson": [
+          0.743069,
+          0.915565
+        ],
+        "specificity": 0.280264,
+        "specificity_95ci_wilson": [
+          0.268663,
+          0.292165
+        ]
+      }
+    },
+    "xgboost_baseline": {
+      "threshold": 0.08273199945688248,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.668468,
+      "validation_metrics": {
+        "auprc": 0.01392,
+        "auroc": 0.569863,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 3434,
+          "tn": 2175,
+          "tp": 53
+        },
+        "f1": 0.029834,
+        "false_positive_rate": 0.61223,
+        "negative_samples": 5609,
+        "npv": 0.994059,
+        "positive_samples": 66,
+        "precision": 0.015199,
+        "sensitivity": 0.80303,
+        "sensitivity_95ci_wilson": [
+          0.69161,
+          0.881115
+        ],
+        "specificity": 0.38777,
+        "specificity_95ci_wilson": [
+          0.375099,
+          0.400594
+        ]
+      }
+    },
+    "xgboost_tuned": {
+      "threshold": 0.09116904437541962,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.643356,
+      "validation_metrics": {
+        "auprc": 0.013408,
+        "auroc": 0.55947,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 3735,
+          "tn": 1874,
+          "tp": 53
+        },
+        "f1": 0.027504,
+        "false_positive_rate": 0.665894,
+        "negative_samples": 5609,
+        "npv": 0.993111,
+        "positive_samples": 66,
+        "precision": 0.013992,
+        "sensitivity": 0.80303,
+        "sensitivity_95ci_wilson": [
+          0.69161,
+          0.881115
+        ],
+        "specificity": 0.334106,
+        "specificity_95ci_wilson": [
+          0.321879,
+          0.34656
+        ]
+      }
+    }
+  },
+  "train_class_ratio_negative_to_positive": 90.163333,
+  "validation_positives": 66,
+  "validation_rows": 5675
+}

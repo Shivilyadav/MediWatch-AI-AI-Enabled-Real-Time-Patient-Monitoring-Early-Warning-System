@@ -1,0 +1,199 @@
+{
+  "architecture": {
+    "dropout": 0.3,
+    "head": "Linear(hidden,1)+sigmoid",
+    "hidden": 32,
+    "input_channels": 20,
+    "layers": 1,
+    "type": "LSTM"
+  },
+  "counts": {
+    "train_positives": 300,
+    "train_sequences": 27349,
+    "validation_positives": 66,
+    "validation_sequences": 5675
+  },
+  "feature_version": "raw-core-derived-seq-v1",
+  "leakage_safe": true,
+  "model": "lstm",
+  "seed": 42,
+  "sequence": {
+    "channels": 20,
+    "imputation": "causal forward-fill + missingness mask; z-scored on train-observed values",
+    "lookback_hours": 24,
+    "per_timestep_inputs": [
+      "heart_rate",
+      "spo2",
+      "respiratory_rate",
+      "temperature",
+      "systolic_bp",
+      "diastolic_bp",
+      "map",
+      "pulse_pressure",
+      "shock_index",
+      "spo2_rr_ratio"
+    ]
+  },
+  "threshold": 0.028856679797172546,
+  "threshold_sensitivity_constraint_met": true,
+  "training": {
+    "batch_size": 256,
+    "best_epoch": 17,
+    "epoch_selected_on": "validation AUPRC",
+    "epochs": 20,
+    "loss": "BCEWithLogits(pos_weight)",
+    "lr": 0.001,
+    "optimizer": "Adam",
+    "pos_weight": 90.163333,
+    "train_seconds": 58.516,
+    "weight_decay": 1e-05
+  },
+  "validation_curve": [
+    {
+      "epoch": 1,
+      "train_loss": 1.319575,
+      "val_auprc": 0.022526,
+      "val_auroc": 0.592789
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.215271,
+      "val_auprc": 0.024235,
+      "val_auroc": 0.590555
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.142686,
+      "val_auprc": 0.024426,
+      "val_auroc": 0.619875
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.039395,
+      "val_auprc": 0.022944,
+      "val_auroc": 0.655594
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.974204,
+      "val_auprc": 0.027592,
+      "val_auroc": 0.677104
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.94226,
+      "val_auprc": 0.024655,
+      "val_auroc": 0.658217
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.922499,
+      "val_auprc": 0.024126,
+      "val_auroc": 0.666086
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.807745,
+      "val_auprc": 0.034372,
+      "val_auroc": 0.725587
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.788018,
+      "val_auprc": 0.030816,
+      "val_auroc": 0.729572
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.712937,
+      "val_auprc": 0.038783,
+      "val_auroc": 0.736487
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.673488,
+      "val_auprc": 0.016842,
+      "val_auroc": 0.637639
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.71607,
+      "val_auprc": 0.036544,
+      "val_auroc": 0.76465
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.57172,
+      "val_auprc": 0.028096,
+      "val_auroc": 0.74307
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.586173,
+      "val_auprc": 0.031615,
+      "val_auroc": 0.746049
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.505933,
+      "val_auprc": 0.034586,
+      "val_auroc": 0.741417
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.583877,
+      "val_auprc": 0.036085,
+      "val_auroc": 0.74928
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.51582,
+      "val_auprc": 0.047721,
+      "val_auroc": 0.756279
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.457982,
+      "val_auprc": 0.02645,
+      "val_auroc": 0.718494
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.55422,
+      "val_auprc": 0.035215,
+      "val_auroc": 0.74243
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.528795,
+      "val_auprc": 0.037687,
+      "val_auroc": 0.762384
+    }
+  ],
+  "validation_metrics": {
+    "auprc": 0.047721,
+    "auroc": 0.756279,
+    "confusion_matrix": {
+      "fn": 6,
+      "fp": 3432,
+      "tn": 2177,
+      "tp": 60
+    },
+    "f1": 0.033727,
+    "false_positive_rate": 0.611874,
+    "negative_samples": 5609,
+    "npv": 0.997251,
+    "positive_samples": 66,
+    "precision": 0.017182,
+    "sensitivity": 0.909091,
+    "sensitivity_95ci_wilson": [
+      0.815511,
+      0.957668
+    ],
+    "specificity": 0.388126,
+    "specificity_95ci_wilson": [
+      0.375453,
+      0.400952
+    ]
+  }
+}

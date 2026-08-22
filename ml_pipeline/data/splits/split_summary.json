@@ -1,0 +1,155 @@
+{
+  "class_distribution": {
+    "test": {
+      "negative_patients": 140,
+      "negative_rows": 5558,
+      "patients": 150,
+      "positive_patients": 10,
+      "positive_row_percentage": 1.697913,
+      "positive_rows": 96,
+      "rows": 5654
+    },
+    "train": {
+      "negative_patients": 650,
+      "negative_rows": 27049,
+      "patients": 700,
+      "positive_patients": 50,
+      "positive_row_percentage": 1.718625,
+      "positive_rows": 473,
+      "rows": 27522
+    },
+    "validation": {
+      "negative_patients": 139,
+      "negative_rows": 5609,
+      "patients": 150,
+      "positive_patients": 11,
+      "positive_row_percentage": 1.837592,
+      "positive_rows": 105,
+      "rows": 5714
+    }
+  },
+  "core_feature_missingness": {
+    "test": {
+      "DBP": {
+        "missing_count": 1944,
+        "missing_percentage": 34.382738,
+        "total_count": 5654
+      },
+      "HR": {
+        "missing_count": 550,
+        "missing_percentage": 9.727626,
+        "total_count": 5654
+      },
+      "MAP": {
+        "missing_count": 687,
+        "missing_percentage": 12.15069,
+        "total_count": 5654
+      },
+      "O2Sat": {
+        "missing_count": 772,
+        "missing_percentage": 13.65405,
+        "total_count": 5654
+      },
+      "Resp": {
+        "missing_count": 897,
+        "missing_percentage": 15.864874,
+        "total_count": 5654
+      },
+      "SBP": {
+        "missing_count": 785,
+        "missing_percentage": 13.883976,
+        "total_count": 5654
+      },
+      "Temp": {
+        "missing_count": 3775,
+        "missing_percentage": 66.766891,
+        "total_count": 5654
+      }
+    },
+    "train": {
+      "DBP": {
+        "missing_count": 8594,
+        "missing_percentage": 31.225928,
+        "total_count": 27522
+      },
+      "HR": {
+        "missing_count": 2755,
+        "missing_percentage": 10.010174,
+        "total_count": 27522
+      },
+      "MAP": {
+        "missing_count": 3433,
+        "missing_percentage": 12.473657,
+        "total_count": 27522
+      },
+      "O2Sat": {
+        "missing_count": 3612,
+        "missing_percentage": 13.124046,
+        "total_count": 27522
+      },
+      "Resp": {
+        "missing_count": 4487,
+        "missing_percentage": 16.303321,
+        "total_count": 27522
+      },
+      "SBP": {
+        "missing_count": 4025,
+        "missing_percentage": 14.624664,
+        "total_count": 27522
+      },
+      "Temp": {
+        "missing_count": 18191,
+        "missing_percentage": 66.096214,
+        "total_count": 27522
+      }
+    },
+    "validation": {
+      "DBP": {
+        "missing_count": 1260,
+        "missing_percentage": 22.051103,
+        "total_count": 5714
+      },
+      "HR": {
+        "missing_count": 556,
+        "missing_percentage": 9.730487,
+        "total_count": 5714
+      },
+      "MAP": {
+        "missing_count": 659,
+        "missing_percentage": 11.533077,
+        "total_count": 5714
+      },
+      "O2Sat": {
+        "missing_count": 763,
+        "missing_percentage": 13.353168,
+        "total_count": 5714
+      },
+      "Resp": {
+        "missing_count": 892,
+        "missing_percentage": 15.610781,
+        "total_count": 5714
+      },
+      "SBP": {
+        "missing_count": 731,
+        "missing_percentage": 12.79314,
+        "total_count": 5714
+      },
+      "Temp": {
+        "missing_count": 3735,
+        "missing_percentage": 65.365768,
+        "total_count": 5714
+      }
+    }
+  },
+  "dataset_patients": 1000,
+  "dataset_rows": 38890,
+  "label_policy": "Original SepsisLabel values are preserved unchanged.",
+  "ratios": {
+    "test": 0.15,
+    "train": 0.7,
+    "validation": 0.15
+  },
+  "seed": 42,
+  "strategy": "patient-level stratification by ever-positive SepsisLabel",
+  "temporal_policy": "PSV rows remain in original ICULOS order; no interpolation, rolling features, or temporal imputation is applied."
+}

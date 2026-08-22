@@ -1,0 +1,21 @@
+{
+  "features": [
+    "HR",
+    "O2Sat",
+    "Temp",
+    "SBP",
+    "MAP",
+    "DBP",
+    "Resp"
+  ],
+  "medians": {
+    "DBP": 63.0,
+    "HR": 84.5,
+    "MAP": 81.0,
+    "O2Sat": 98.0,
+    "Resp": 18.0,
+    "SBP": 122.0,
+    "Temp": 37.0
+  },
+  "type": "training_only_median_imputer"
+}

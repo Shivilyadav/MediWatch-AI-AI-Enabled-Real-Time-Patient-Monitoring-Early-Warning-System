@@ -1,0 +1,339 @@
+{
+  "feature_count": 52,
+  "feature_version": "stage4-v1",
+  "models": {
+    "logistic_regression": {
+      "configuration": {
+        "class_weight": "balanced",
+        "imputer": "median fit on train",
+        "scaler": "standard scaler fit on train"
+      },
+      "inference_latency_ms_per_row": 0.000804,
+      "test_metrics": {
+        "auprc": 0.036939,
+        "auroc": 0.626189,
+        "confusion_matrix": {
+          "fn": 9,
+          "fp": 4152,
+          "tn": 1406,
+          "tp": 51
+        },
+        "f1": 0.023927,
+        "false_positive_rate": 0.747031,
+        "negative_samples": 5558,
+        "npv": 0.99364,
+        "positive_samples": 60,
+        "precision": 0.012134,
+        "sensitivity": 0.85,
+        "sensitivity_95ci_wilson": [
+          0.738852,
+          0.919027
+        ],
+        "specificity": 0.252969,
+        "specificity_95ci_wilson": [
+          0.241713,
+          0.264565
+        ]
+      },
+      "threshold": 0.29284676898730305,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.350783,
+      "validation_metrics": {
+        "auprc": 0.013544,
+        "auroc": 0.566878,
+        "confusion_matrix": {
+          "fn": 12,
+          "fp": 4087,
+          "tn": 1522,
+          "tp": 54
+        },
+        "f1": 0.025671,
+        "false_positive_rate": 0.72865,
+        "negative_samples": 5609,
+        "npv": 0.992177,
+        "positive_samples": 66,
+        "precision": 0.01304,
+        "sensitivity": 0.818182,
+        "sensitivity_95ci_wilson": [
+          0.708546,
+          0.892815
+        ],
+        "specificity": 0.27135,
+        "specificity_95ci_wilson": [
+          0.259872,
+          0.28314
+        ]
+      }
+    },
+    "news2_adapted": {
+      "configuration": {
+        "available_components": [
+          "respiratory_rate",
+          "spo2_scale_1",
+          "temperature",
+          "systolic_bp",
+          "heart_rate"
+        ],
+        "missing_component_policy": "0 points",
+        "unavailable_components": [
+          "supplemental_oxygen",
+          "consciousness_or_new_confusion"
+        ]
+      },
+      "inference_latency_ms_per_row": 7.8e-05,
+      "test_metrics": {
+        "auprc": 0.012792,
+        "auroc": 0.523327,
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 5558,
+          "tn": 0,
+          "tp": 60
+        },
+        "f1": 0.021134,
+        "false_positive_rate": 1.0,
+        "negative_samples": 5558,
+        "npv": 0.0,
+        "positive_samples": 60,
+        "precision": 0.01068,
+        "sensitivity": 1.0,
+        "sensitivity_95ci_wilson": [
+          0.939826,
+          1.0
+        ],
+        "specificity": 0.0,
+        "specificity_95ci_wilson": [
+          0.0,
+          0.000691
+        ]
+      },
+      "threshold": 0.0,
+      "threshold_sensitivity_constraint_met": true,
+      "validation_metrics": {
+        "auprc": 0.016936,
+        "auroc": 0.599602,
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 5609,
+          "tn": 0,
+          "tp": 66
+        },
+        "f1": 0.022993,
+        "false_positive_rate": 1.0,
+        "negative_samples": 5609,
+        "npv": 0.0,
+        "positive_samples": 66,
+        "precision": 0.01163,
+        "sensitivity": 1.0,
+        "sensitivity_95ci_wilson": [
+          0.944996,
+          1.0
+        ],
+        "specificity": 0.0,
+        "specificity_95ci_wilson": [
+          0.0,
+          0.000684
+        ]
+      }
+    },
+    "random_forest": {
+      "configuration": {
+        "class_weight": "balanced_subsample",
+        "imputer": "median fit on train",
+        "n_estimators": 300
+      },
+      "inference_latency_ms_per_row": 0.011107,
+      "test_metrics": {
+        "auprc": 0.01378,
+        "auroc": 0.607251,
+        "confusion_matrix": {
+          "fn": 8,
+          "fp": 4178,
+          "tn": 1380,
+          "tp": 52
+        },
+        "f1": 0.024242,
+        "false_positive_rate": 0.751709,
+        "negative_samples": 5558,
+        "npv": 0.994236,
+        "positive_samples": 60,
+        "precision": 0.012293,
+        "sensitivity": 0.866667,
+        "sensitivity_95ci_wilson": [
+          0.758346,
+          0.93086
+        ],
+        "specificity": 0.248291,
+        "specificity_95ci_wilson": [
+          0.237109,
+          0.25982
+        ]
+      },
+      "threshold": 0.0033333333333333335,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 2.144654,
+      "validation_metrics": {
+        "auprc": 0.014898,
+        "auroc": 0.59017,
+        "confusion_matrix": {
+          "fn": 8,
+          "fp": 4106,
+          "tn": 1503,
+          "tp": 58
+        },
+        "f1": 0.027423,
+        "false_positive_rate": 0.732038,
+        "negative_samples": 5609,
+        "npv": 0.994705,
+        "positive_samples": 66,
+        "precision": 0.013929,
+        "sensitivity": 0.878788,
+        "sensitivity_95ci_wilson": [
+          0.778623,
+          0.937282
+        ],
+        "specificity": 0.267962,
+        "specificity_95ci_wilson": [
+          0.256533,
+          0.279709
+        ]
+      }
+    },
+    "xgboost_baseline": {
+      "configuration": {
+        "colsample_bytree": 0.8,
+        "learning_rate": 0.05,
+        "max_depth": 4,
+        "n_estimators": 200,
+        "scale_pos_weight": 90.16333333333333,
+        "search_candidates": 0,
+        "subsample": 0.8
+      },
+      "inference_latency_ms_per_row": 0.001088,
+      "test_metrics": {
+        "auprc": 0.015732,
+        "auroc": 0.614785,
+        "confusion_matrix": {
+          "fn": 5,
+          "fp": 4382,
+          "tn": 1176,
+          "tp": 55
+        },
+        "f1": 0.024461,
+        "false_positive_rate": 0.788413,
+        "negative_samples": 5558,
+        "npv": 0.995766,
+        "positive_samples": 60,
+        "precision": 0.012396,
+        "sensitivity": 0.916667,
+        "sensitivity_95ci_wilson": [
+          0.819308,
+          0.96388
+        ],
+        "specificity": 0.211587,
+        "specificity_95ci_wilson": [
+          0.20105,
+          0.222522
+        ]
+      },
+      "threshold": 0.056776948273181915,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.725778,
+      "validation_metrics": {
+        "auprc": 0.012975,
+        "auroc": 0.542903,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 4031,
+          "tn": 1578,
+          "tp": 53
+        },
+        "f1": 0.025542,
+        "false_positive_rate": 0.718666,
+        "negative_samples": 5609,
+        "npv": 0.991829,
+        "positive_samples": 66,
+        "precision": 0.012977,
+        "sensitivity": 0.80303,
+        "sensitivity_95ci_wilson": [
+          0.69161,
+          0.881115
+        ],
+        "specificity": 0.281334,
+        "specificity_95ci_wilson": [
+          0.269719,
+          0.293248
+        ]
+      }
+    },
+    "xgboost_tuned": {
+      "configuration": {
+        "colsample_bytree": 0.8,
+        "learning_rate": 0.05,
+        "max_depth": 3,
+        "n_estimators": 300,
+        "scale_pos_weight": 90.16333333333333,
+        "search_candidates": 3,
+        "subsample": 0.9
+      },
+      "inference_latency_ms_per_row": 0.001605,
+      "test_metrics": {
+        "auprc": 0.0185,
+        "auroc": 0.637588,
+        "confusion_matrix": {
+          "fn": 5,
+          "fp": 4290,
+          "tn": 1268,
+          "tp": 55
+        },
+        "f1": 0.024972,
+        "false_positive_rate": 0.77186,
+        "negative_samples": 5558,
+        "npv": 0.996072,
+        "positive_samples": 60,
+        "precision": 0.012658,
+        "sensitivity": 0.916667,
+        "sensitivity_95ci_wilson": [
+          0.819308,
+          0.96388
+        ],
+        "specificity": 0.22814,
+        "specificity_95ci_wilson": [
+          0.217297,
+          0.239357
+        ]
+      },
+      "threshold": 0.07515209168195724,
+      "threshold_sensitivity_constraint_met": true,
+      "training_seconds": 0.573458,
+      "validation_metrics": {
+        "auprc": 0.013878,
+        "auroc": 0.567577,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 3959,
+          "tn": 1650,
+          "tp": 53
+        },
+        "f1": 0.025993,
+        "false_positive_rate": 0.70583,
+        "negative_samples": 5609,
+        "npv": 0.992183,
+        "positive_samples": 66,
+        "precision": 0.01321,
+        "sensitivity": 0.80303,
+        "sensitivity_95ci_wilson": [
+          0.69161,
+          0.881115
+        ],
+        "specificity": 0.29417,
+        "specificity_95ci_wilson": [
+          0.282389,
+          0.306233
+        ]
+      }
+    }
+  },
+  "train_class_ratio_negative_to_positive": 90.163333,
+  "training_seed": 42
+}
