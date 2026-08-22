@@ -11,12 +11,9 @@ __pycache__/
 *.so
 .pytest_cache/
 
-# Large Datasets (PhysioNet 40,000+ PSV files)
-data/
-*.psv
+# Large Archives
 *.zip
 *.tar.gz
-*.csv
 
 # ML Model checkpoints / binary files (if large)
 *.pkl.bak
