@@ -1,70 +1,81 @@
-# 🩺 MediWatch AI: AI-Enabled Real-Time Patient Monitoring & Early Warning System
+# MediWatch AI — Real-Time Patient Monitoring & Early Warning System
 
-MediWatch AI is an intelligent clinical ICU telemetry and remote patient monitoring platform that streams multi-parameter vital signs (ECG, PPG/SpO2, Blood Pressure, Respiration Rate, Temperature) and utilizes Machine Learning algorithms on real-world clinical ICU datasets (PhysioNet Challenge 2019) for early anomaly detection, sepsis risk stratification, and real-time clinical alerts.
+**Member 5 — UI/UX Designer + Patient Simulation Engineer**
 
----
-
-## 🚀 Key Features
-
-- **Real-Time Telemetry Streaming**: High-frequency ECG (Lead II) and PPG wave synthesis using Gaussian wave modeling.
-- **AI/ML Early Warning Engine**: Real-time vital anomaly detection and sepsis onset risk scoring.
-- **PhysioNet Challenge 2019 Dataset Pipeline**: High-throughput multi-threaded downloader and preprocessing pipeline for 40,336 ICU patient records across Hospital A and Hospital B.
-- **Multi-Bed Central Station**: Dynamic patient vital monitoring with acoustic alert feedback.
+MediWatch AI is a clinical-grade hospital command center frontend and real-time patient physiological simulator built with **React, Vite, Tailwind CSS, Recharts, Lucide React, and React Context**.
 
 ---
 
-## 📁 Repository Structure
+## Key Features
 
-```
-├── data/                       # Downloaded PhysioNet ICU patient records (git-ignored)
-│   ├── training_setA/          # 20,336 patient records (.psv) from Hospital A
-│   └── training_setB/          # 20,000 patient records (.psv) from Hospital B
-├── ml_pipeline/                # Machine Learning & Signal Processing
-│   ├── download_dataset.py     # Multi-threaded AWS S3 PhysioNet 2019 dataset downloader
-│   ├── signal_generator.py     # Synthetic PQRST ECG & PPG wave synthesis
-│   └── __init__.py
-├── .gitignore                  # Git ignore rules for datasets, cache, and virtualenvs
-├── requirements.txt            # Project Python dependencies
-└── README.md                   # Project documentation
-```
+1. **Hospital Command Center Dashboard (`/`)**:
+   - Dynamic KPI summary cards (Total Patients, Normal, Medium Risk, High/Critical Risk, Active Alerts).
+   - Real-time patient grid featuring 5 simulated beds (`P001` - `P005`).
+   - Active Alerts Queue with clinical rationale and 1-click **ACKNOWLEDGE** action.
+
+2. **Patient Detail Clinical View (`/patient/:patientId`)**:
+   - Animated **AI Deterioration Risk Score Gauge** (0–100%) with level transitions (LOW, MEDIUM, HIGH, CRITICAL).
+   - Predicted event & time horizon estimation.
+   - Smooth **Recharts 24-hour vitals trends** (Heart Rate, SpO2, Respiratory Rate, Temperature, Blood Pressure).
+   - **SHAP Feature Attribution Breakdown** ("Why is this patient at risk?") with dynamic horizontal contribution bars.
+   - **NEWS2 Progression Timeline** with threshold zones (Low, Medium, High).
+   - Complete **Alert Audit History** with acknowledgment status.
+
+3. **Interactive Patient Simulator (`/simulator`)**:
+   - 5 Physiological Scenarios: `NORMAL`, `DETERIORATING` (Primary Demo), `SEPSIS_ONSET`, `RESPIRATORY_FAILURE`, `RECOVERING`.
+   - Speed Controls: `1x`, `2x`, `5x`, `10x`.
+   - Smooth vital interpolation, bounded physiological noise, and alert suppression engine.
+
+4. **Mobile Alert Response View (`/mobile-alert/:alertId`)**:
+   - Native-feeling mobile UI for emergency alerts with instant vital snapshots.
+
+5. **Dual Mode Architecture**:
+   - **Demo Mode**: 100% browser-based execution with zero backend dependency.
+   - **Live Mode**: Integrates with FastAPI REST endpoints & WebSocket (`ws://localhost:8000/ws/vitals-stream`) with automatic timeout and fallback.
 
 ---
 
-## 🛠️ Quick Start Guide
+## Installation & Setup
 
-### 1. Prerequisites & Environment Setup
-Clone the repository and create a Python virtual environment:
+### Prerequisites
+- Node.js (v18+)
+- npm or yarn
 
+### 1. Install Dependencies
 ```bash
-git clone https://github.com/Shivilyadav/MediWatch-AI-AI-Enabled-Real-Time-Patient-Monitoring-Early-Warning-System.git
-cd MediWatch-AI-AI-Enabled-Real-Time-Patient-Monitoring-Early-Warning-System
-
-# Create and activate virtual environment
-python -m venv .venv
-# On Windows PowerShell:
-.\.venv\Scripts\Activate.ps1
-# On Linux/macOS:
-source .venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
+cd mediwatch-ai
+npm install
 ```
 
-### 2. Download PhysioNet Dataset
-To download the complete 40,336 patient records directly from open AWS S3 storage:
+### 2. Configure Environment Variables
+Copy `.env.example` to `.env`:
+```env
+VITE_DEMO_MODE=true
+VITE_API_BASE_URL=http://localhost:8000
+VITE_WS_URL=ws://localhost:8000/ws/vitals-stream
+```
 
+### 3. Run Local Development Server
 ```bash
-python ml_pipeline/download_dataset.py
+npm run dev
 ```
 
----
-
-## 📊 Dataset Attribution
-
-This project uses clinical ICU telemetry from the **PhysioNet / Computing in Cardiology Challenge 2019**:
-- *Reyna MA, Josef CS, Jeter R, Shashikumar SP, Moody B, Westover MB, Sharma A, Nemati S, Clifford GD. Early Prediction of Sepsis from Clinical Data: the PhysioNet/Computing in Cardiology Challenge 2019. Crit Care Med. 2020 Jan;48(1):e1-e9.*
+The application will be accessible at: `http://localhost:5173`
 
 ---
 
-## 📄 License
-This project is licensed under the MIT License.
+## Hackathon Demo Step-by-Step Flow
+
+1. **Step 1 — Open Command Center**: Navigate to `/`. Observe 5 patient cards. Patients P001, P002, P004 are Normal; P003 is in Medium Risk state (45%).
+2. **Step 2 — Launch Simulator**: Click **Patient Simulator** in header. Select Patient **P003**, Scenario **Gradual Deterioration**, and Speed **5x**. Click **START SIMULATION**.
+3. **Step 3 — Watch Real-Time Risk Progression**: Return to Command Center or stay on Simulator. Watch P003 risk progress smoothly:
+   - `45% (MEDIUM)` → `62% (MEDIUM)` → `78% (HIGH)` → `88% (CRITICAL)`
+4. **Step 4 — Automatic Alert Trigger**: Observe a new CRITICAL Alert appearing at the top of the Active Alert Queue.
+5. **Step 5 — Inspect Patient Detail**: Click **P003**. Observe the animated Risk Gauge (88%), Recharts trends, NEWS2 progression, and SHAP factor breakdown ("Respiratory Rate 28/min (+0.34), SpO2 88% (+0.32)").
+6. **Step 6 — Acknowledge Alert**: Click **ACKNOWLEDGE ALERT**. Observe immediate UI update to ACKNOWLEDGED.
+7. **Step 7 — Simulate Clinical Recovery**: Go to Simulator, switch P003 scenario to **RECOVERING**. Watch vitals and risk score gradually stabilize back to normal bounds.
+
+---
+
+## Medical Safety Disclaimer
+> **Prototype — Simulated data only. Not for clinical diagnosis or real patient care.**
