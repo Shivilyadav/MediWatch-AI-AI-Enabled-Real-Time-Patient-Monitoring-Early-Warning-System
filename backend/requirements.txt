@@ -1,7 +1,11 @@
 fastapi>=0.100.0
 uvicorn>=0.22.0
 websockets>=11.0
-numpy>=1.24.0
+numpy>=1.24.0,<3
 pydantic>=2.0.0
-scikit-learn>=1.2.0
+# Pinned to the version the final model artifact was created with (see its
+# `created_with` metadata) so unpickling final_model_v1.pkl stays reproducible.
+scikit-learn==1.9.0
 pandas>=2.0.0
+# Required by ml_pipeline/inference.py to load final_model_v1.pkl.
+joblib>=1.3.0

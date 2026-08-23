@@ -1,0 +1,52 @@
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+ml_pipeline/.venv_stage5/
+ml_pipeline/_stage5_packages_disabled/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+ml_pipeline/.ipynb_checkpoints/
+
+# IDEs & editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs & temporary files
+*.log
+*.tmp
+
+# PhysioNet dataset and generated training data
+ml_pipeline/data/raw/
+ml_pipeline/data/processed/
+ml_pipeline/data/processed_v2/
+
+# Old model
+ml_pipeline/model.pkl
+
+# Experimental trained models
+ml_pipeline/saved_models/*.joblib
+ml_pipeline/saved_models/*.pt
+
+# Keep the final model
+!ml_pipeline/saved_models/final_model_v1.pkl
+
+# Node dependencies/build
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
